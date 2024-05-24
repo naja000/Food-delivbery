@@ -1,0 +1,51 @@
+{% extends 'Restuarant/restaurantindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="searchorder#about">
+  <table width="200" border="1" class="table table-bordered">
+    <tr>
+      <td colspan="6">
+      Date
+
+        <input type="date" name="textfield" value="{{ date }}" required />
+
+
+        <input type="submit" name="Submit" value="Search"  class="btn btn-success"/>
+     </td>
+    </tr>
+    <tr>
+      <td>Order id </td>
+      <td>Username</td>
+      <td>Total amount </td>
+      <td>Date</td>
+      <td>Item</td>
+        <td></td>
+    </tr>
+            {% for i in data %}
+
+    <tr>
+      <td>&nbsp;{{ i.id }}</td>
+      <td>&nbsp;{{ i.user.name }}</td>
+      <td>&nbsp;{{ i.total }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+        <td><p><a href="view_items/{{ i.id }}" class="btn btn-success">View items</a></p></td>
+{#        {% if i.status == 'pending' %}#}
+{#      <td><p><a href="/acceptorder/{{ i.id }}" class="btn btn-success">Accept</a></p>#}
+{#      <p><a href="/rejectorder/{{ i.id }}" class="btn btn-success">reject</a></p></td>#}
+
+{#          {% elif i.status == 'accept' %}#}
+
+      <td><a href="/assign_agent/{{ i.id }}" class="btn btn-success">Assign</a></td>
+{#                {% else %}#}
+{#              <td>{{ i.status }}</td>#}
+
+{#          {% endif %}#}
+
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}
+

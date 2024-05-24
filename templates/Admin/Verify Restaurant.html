@@ -1,0 +1,48 @@
+{% extends 'Admin/adminindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="verify_restaurantsearch#about">
+  <table width="386" height="168" border="1" class="table table-bordered">
+    <tr>
+              <td>Restaurant Name</td>
+
+      <td colspan="12"><input type="text" name="t1" value="{{ n }}" required/>
+          <input type="submit" name="button" id="button" value="Search" class="btn btn-success"/></td>
+    </tr>
+
+    <tr>
+      <td>Name</td>
+      <td>Addresss</td>
+      <td>Phone</td>
+      <td>Email</td>
+      <td>Image</td>
+      <td>&nbsp;</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ i.name }}</td>
+      <td>{{ i.place }} {{ i.post }} {{ i.pincode }}</td>
+      <td>&nbsp;{{ i.phone }}</td>
+      <td>&nbsp;{{ i.email }}</td>
+      <td>&nbsp;<img src="media/{{ i.image }}" height="100" width="100dp" alt=""/></td>
+
+                {% if i.login.type == 'pending' %}
+
+      <td><a href="/acceptrestaurant/{{ i.login.id }}" class="btn btn-success">Accept</a><p>
+        <a href="/rejectrestaurant/{{ i.login.id }}" class="btn btn-success">Reject</a></td>
+
+        {% elif i.login.type == 'reject'  %}
+        <td>Reject</td>
+        {% else %}
+        <td>Accept</td>
+    {% endif %}
+
+    </tr>
+      {% endfor %}
+
+  </table>
+</form>
+</body>
+{% endblock %}
+

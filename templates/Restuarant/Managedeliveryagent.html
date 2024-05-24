@@ -1,0 +1,41 @@
+{% extends 'Restuarant/restaurantindex.html' %}
+{% block body %}
+
+
+<body>
+<form id="form1" name="form1" method="post" action="agentsearch#about">
+  <table width="502" height="145" border="1" class="table table-bordered">
+
+  <tr>
+      <td colspan="5">Name
+          <input type="text" name="name" value="{{ n }}" required/>
+          <input type="submit" value="search" class="btn btn-success"/>
+      </td>
+  </tr>
+
+    <tr>
+      <td width="27">Name</td>
+      <td width="37">Address</td>
+      <td width="12">Phone</td>
+      <td width="12">Email</td>
+      <td width="175">&nbsp;</td>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>&nbsp;{{ i.name }}</td>
+      <td>{{ i.place }} {{ i.post }} {{ i.pincode }}</td>
+      <td>&nbsp;{{ i.phone }}</td>
+      <td>&nbsp;{{ i.email }}</td>
+      <td><p><a href="/editdelivery/{{ i.id }}#about"  class="btn btn-success">Edit</a></p>
+      <p><a href="/deleteagent/{{ i.login.id }}" class="btn btn-success">Delete</a></p></td>
+    </tr>
+      {% endfor %}
+      <tr align="center">
+          <td colspan="5"><p><a href="adddelivery#about" class="btn btn-success">Add new</a></p></td>
+      </tr>
+  </table>
+
+</form>
+</body>
+{% endblock %}
+

@@ -1,0 +1,30 @@
+{% extends 'Admin/adminindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="view_reviewpost#about">
+  <table width="314" height="180" border="1" class="table table-bordered">
+<tr>
+              <td>Date</td>
+
+      <td colspan="12"><input type="date" name="t1" required value="{{ date }}"/>
+          <input type="submit" name="button" id="button" value="Search" class="btn btn-success"/></td>
+    </tr>
+    <tr>
+      <td>Username </td>
+      <td >Date</td>
+      <td>Reveiw</td>
+      <td>Rating</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ i.users.name }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+      <td>&nbsp;{{ i.review }}</td>
+      <td>&nbsp;{{ i.rating }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

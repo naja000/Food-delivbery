@@ -1,0 +1,43 @@
+{% extends 'Restuarant/restaurantindex.html' %}
+{% block body %}
+
+
+<body>
+<form id="form1" name="form1" method="post" action="itemsearch#about">
+  <table width="502" height="145" border="1" class="table table-bordered">
+    <tr align="center">
+      <td colspan="5">Category
+        <select name="select" required>
+            {% for i in data %}
+                <option value="{{ i.id }}"{% if  i.id  ==  t  %} selected {% endif %}>{{ i.category }}</option>
+            {% endfor %}
+        </select>
+          <input type="submit" name="Submit" value="Search" class="btn btn-success" />
+      </td>
+    </tr>
+    <tr>
+      <td width="27">Item</td>
+      <td width="37">Image</td>
+      <td width="12">Price</td>
+      <td width="12">Stock</td>
+      <td width="175">&nbsp;</td>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>&nbsp;{{ i.name }}</td>
+      <td>&nbsp;<img src="media/{{ i.image }}" width="100dp" height="100dp" alt=""/></td>
+      <td>&nbsp;{{ i.price }}</td>
+      <td>&nbsp;{{ i.stock }}</td>
+      <td><p><a href="/edititems/{{ i.id }}#about" class="btn btn-success">Edit</a></p>
+      <p><a href="/deleteitem/{{ i.id }}" class="btn btn-success">Delete</a></p></td>
+    </tr>
+      {% endfor %}
+      <tr align="center">
+          <td colspan="5"><p><a href="add_items#about" class="btn btn-success">Add new</a></p></td>
+      </tr>
+  </table>
+
+</form>
+</body>
+{% endblock %}
+

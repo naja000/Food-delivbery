@@ -1,0 +1,50 @@
+{% extends 'Restuarant/restaurantindex.html' %}
+{% block body %}
+
+
+<body>
+<form action="/editdeliverypost" method="post" enctype="multipart/form-data" name="form1" id="form1">
+<table width="337" border="1" class="table table-bordered">
+  <tr>
+    <td width="164">Name</td>
+    <td>&nbsp;<input type="text" name="name" value="{{ val.name }}" required/> </td>
+  </tr>
+  <tr>
+    <td>Place</td>
+    <td>&nbsp;<input type="text" name="place" value="{{ val.place }}" required/></td>
+  </tr>
+  <tr>
+    <td>Post</td>
+    <td>&nbsp;<input type="text" name="post" value="{{ val.post }}" required/></td>
+  </tr>
+  <tr>
+    <td>Pin code </td>
+    <td>&nbsp;<input type="text" name="pin" value="{{ val.pincode }}" required pattern="[0-9]{6}"/></td>
+  </tr>
+
+  <tr>
+    <td>Phone</td>
+    <td>&nbsp;<input type="text" name="phone" value="{{ val.phone }}" required pattern="[0-9]{10}"/></td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td>&nbsp;<input type="email" name="email" value="{{ val.email }}" required/></td>
+  </tr>
+
+
+  <tr>
+    <td colspan="2">
+      <label>
+        <input type="submit" name="Submit" value="Edit" class="btn btn-success" />
+        </label>
+
+    </td>
+
+  </tr>
+</table>
+</form>
+</body>
+{% endblock %}
+
+
+

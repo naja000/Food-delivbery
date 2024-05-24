@@ -1,0 +1,46 @@
+{% extends 'Restuarant/restaurantindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="searchschedule">
+  <table width="376" height="151" border="1" class="table table-bordered">
+
+
+  <tr>
+        <td colspan="3">Pin
+          <label>
+          <input type="text" name="textfield" value="{{ date }}" required />
+        </label></td>
+        <td><label>
+          <input type="submit" name="Submit" value="Search" class="btn btn-success" />
+        </label></td>
+      </tr>
+
+    <tr>
+      <td>User</td>
+      <td>Food</td>
+      <td>Type</td>
+      <td>Day</td>
+        <td></td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ i.user.name }}</td>
+      <td>{{ i.item.name }}</td>
+      <td>{{ i.type }}</td>
+      <td>{{ i.day }}</td>
+        {% if i.status == 'pending' %}
+        <td><a href="acceptschedule/{{ i.id }}" class="btn btn-outline-secondary">Accept</a><p></p>
+      <a href="rejectschedule/{{ i.id }}" class="btn btn-outline-secondary">Reject</a> </td>
+    {% elif i.status == 'reject' %}
+    <td>Reject</td>
+    {% else %}
+    <td>Accept</td>
+    {% endif %}
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}
+

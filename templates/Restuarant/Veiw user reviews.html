@@ -1,0 +1,35 @@
+{% extends 'Restuarant/restaurantindex.html' %}
+{% block body %}
+
+<body>
+
+  <form id="form1" name="form1" method="post" action="searchreview#about">
+    <table width="200" border="1" class="table table-bordered">
+      <tr>
+        <td colspan="3">Date 
+          <label>
+          <input type="date" name="textfield" value="{{ date }}" required />
+        </label></td>
+        <td><label>
+          <input type="submit" name="Submit" value="Search" class="btn btn-success" />
+        </label></td>
+      </tr>
+      <tr>
+        <td>Username</td>
+        <td>Reveiw</td>
+        <td>Date</td>
+        <td>Rating</td>
+      </tr>
+        {% for i in val %}
+      <tr>
+        <td>&nbsp;{{ i.users.name }}</td>
+        <td>&nbsp;{{ i.review }}</td>
+        <td>&nbsp;{{ i.date }}</td>
+        <td>&nbsp;{{ i.rating }}</td>
+      </tr>
+        {% endfor %}
+    </table>
+  </form>
+</body>
+{% endblock %}
+

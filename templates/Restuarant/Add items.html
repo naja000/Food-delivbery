@@ -1,0 +1,47 @@
+{% extends 'Restuarant/restaurantindex.html' %}
+{% block body %}
+
+
+<body>
+<form action="add_itemspost#about" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table width="200" border="1" class="table table-bordered">
+    <tr>
+      <td>Product Category</td>
+      <td><label for="textfield"></label>
+      <select name="category" required>
+          <option value="">Select</option>
+            {% for i in val %}
+          <option value="{{ i.id }}">{{ i.category }}</option>
+{% endfor %}
+      </select> </td>
+    </tr>
+    <tr>
+      <td>Product Name</td>
+      <td><label for="textfield2"></label>
+      <input type="text" name="name" id="textfield2" required=""/></td>
+    </tr>
+    <tr>
+      <td>Image</td>
+      <td><label for="fileField"></label>
+      <input type="file" name="image" id="fileField" required=""/></td>
+    </tr>
+    <tr>
+      <td>Price</td>
+      <td><label for="textfield3"></label>
+      <input type="text" name="price" id="textfield3" required pattern="[0-9]{2,}"/></td>
+    </tr>
+    <tr>
+      <td>Stock</td>
+      <td><label for="textfield4"></label>
+      <input type="text" name="stock" id="textfield4" required pattern="[0-9]{2,}"/></td>
+    </tr>
+
+
+
+    <tr align="center">
+      <td colspan="2"><input type="submit" name="button" id="button" value="Add"  class="btn btn-success"/></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'Restuarant/restaurantindex.html' %}
+{% block body %}
+
+
+<body>
+<form action="adddeliverypost#about" method="post" name="form1" id="form1">
+<table width="337" border="1" class="table table-bordered">
+  <tr>
+    <td width="164">Name</td>
+    <td>&nbsp;<input type="text" name="name" required/> </td>
+  </tr>
+  <tr>
+    <td>Place</td>
+    <td>&nbsp;<input type="text" name="place" required/></td>
+  </tr>
+  <tr>
+    <td>Post</td>
+    <td>&nbsp;<input type="text" name="post" required/></td>
+  </tr>
+  <tr>
+    <td>Pin code </td>
+    <td>&nbsp;<input type="text" name="pin" required pattern="[0-9]{6}"/></td>
+  </tr>
+
+  <tr>
+    <td>Phone</td>
+    <td>&nbsp;<input type="text" name="phone" required pattern="[0-9]{10}"/></td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td>&nbsp;<input type="email" name="email" required/></td>
+  </tr>
+
+  <tr>
+    <td>Username</td>
+    <td>&nbsp;<input type="text" name="username" required/></td>
+  </tr>
+  <tr>
+    <td>Password</td>
+    <td>&nbsp;<input type="password" name="password" required/></td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <label>
+        <input type="submit" name="Submit" value="Add" class="btn btn-success" />
+        </label>
+
+    </td>
+
+  </tr>
+</table>
+</form>
+</body>
+{% endblock %}
+
+
+
